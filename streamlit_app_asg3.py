@@ -42,8 +42,13 @@ with tab5:
             return None
     github_url = "https://github.com/GeraldKoh/streamlit_app/raw/main/shiftsalesau.zip"
     maintable = read_csv_from_zipped_github(github_url)
-
-    maintable.head()
+    st.write(maintable)
+    # maintable.head()
+    
+# def load_data():
+#     # First load the original airbnb listtings dataset
+#     data = pd.read_csv("listings.csv") #use this for the original dataset, before transformations and cleaning
+#     return data
 
     # #import pandas
     # data_aust = pd.read_csv('shiftsales_menuitem_au.csv')
