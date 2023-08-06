@@ -3,6 +3,8 @@ import pandas
 import requests
 from urllib.error import URLError
 
+tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Sales Prediction Australia', 'Prediction D', 'Prediction E'])
+
 streamlit.title('My Parents New Healthy Diner!')
 
 streamlit.header('Breakfast Menu')
