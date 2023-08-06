@@ -69,8 +69,9 @@ with tab5:
         
     # Define the user input fields
     city_input = get_city()
-    menu_item_input = get_menu_item()
     shiftid_input = get_shiftid()
+    menu_item_input = get_menu_item()
+
     
     # st.write(maintable)
     # maintable.head()
