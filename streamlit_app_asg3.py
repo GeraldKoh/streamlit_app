@@ -46,6 +46,10 @@ with tab5:
     city_mapping = {'Sydney': 0, 'Melbourne': 1}
     city_reverse_mapping = {v: k for k, v in city_mapping.items()}
     city_labels = list(city_mapping.keys())
+
+    def get_city():
+    city = st.selectbox('Select a city', city_labels)
+    return city
     
     # st.write(maintable)
     # maintable.head()
