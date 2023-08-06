@@ -76,7 +76,7 @@ with tab5:
     shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input and shiftid_table['CITY'] == city_input]
 
     # Display the table on the page.
-    st.dataframe(shiftid_display)
+    st.dataframe(shiftid_table)
 
     # st.write(maintable)
     # maintable.head()
