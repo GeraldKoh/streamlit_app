@@ -49,7 +49,7 @@ with tab5:
 
     menu_items = maintable["MENU_ITEM_NAME"].unique()
     menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
-    menu_item_labels = list(menu_mapping.keys())
+    menu_item_labels = list(menu_item_mapping.keys())
 
     def get_city():
         city = st.selectbox('Select a City', city_labels)
