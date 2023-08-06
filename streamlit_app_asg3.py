@@ -15,6 +15,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Sales P
 with tab3:
     # Define the app title and favicon
     st.title('Shift Sales of Cities in Australia')
+    
     st.subheader('Predict')
     st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
