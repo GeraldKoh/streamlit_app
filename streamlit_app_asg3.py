@@ -11,6 +11,7 @@ st.sidebar.markdown("This web app allows you to explore the internal inventory o
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Sales Prediction Australia', 'Prediction D', 'Prediction E'])
 
+
 with tab3:
     # Define the app title and favicon
     st.title('Shift Sales of Cities in Australia')
