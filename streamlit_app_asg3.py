@@ -50,6 +50,9 @@ with tab5:
     def get_city():
         city = st.selectbox('Select a city', city_labels)
         return city
+        
+    # Define the user input fields
+    ng_input = get_city()
     
     # st.write(maintable)
     # maintable.head()
