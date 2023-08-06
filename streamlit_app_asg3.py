@@ -45,7 +45,11 @@ with tab5:
 
     city_mapping = {'Sydney': 0, 'Melbourne': 1}
     city_reverse_mapping = {v: k for k, v in city_mapping.items()}
-    city_labels = list(city_mapping.keys())
+    city_labels = list(city_mapping.keys())\
+
+    shiftid = maintable["SHIFT_ID"].unique()
+    shiftid_mapping = {shift: s for s, shift in enumerate(shiftid)}
+    shiftid_labels = list(shiftid_mapping.keys())
 
     menu_items = maintable["MENU_ITEM_NAME"].unique()
     menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
@@ -53,7 +57,11 @@ with tab5:
 
     def get_city():
         city = st.selectbox('Select a City', city_labels)
-        return city
+        return city    
+        
+    def get_shiftid():
+        shiftid = st.selectbox('Select a Shift', shiftid_labels)
+        return shiftid
         
     def get_menu_item():
         menu_item = st.selectbox('Select a Menu Item', menu_item_labels)
@@ -62,6 +70,7 @@ with tab5:
     # Define the user input fields
     city_input = get_city()
     menu_item_input = get_menu_item()
+    shiftid_input = get_shiftid()
     
     # st.write(maintable)
     # maintable.head()
