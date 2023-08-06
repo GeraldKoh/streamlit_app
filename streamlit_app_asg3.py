@@ -42,7 +42,12 @@ with tab5:
             return None
     github_url = "https://github.com/GeraldKoh/streamlit_app/raw/main/shiftsalesau.zip"
     maintable = read_csv_from_zipped_github(github_url)
-    st.write(maintable)
+
+    city_mapping = {'Sydney': 0, 'Melbourne': 1}
+    city_reverse_mapping = {v: k for k, v in city_mapping.items()}
+    city_labels = list(city_mapping.keys())
+    
+    # st.write(maintable)
     # maintable.head()
     
 # def load_data():
