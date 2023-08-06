@@ -73,7 +73,7 @@ with tab5:
     menu_item_input = get_menu_item()
 
     shiftid_table = maintable[['SHIFT_ID', 'CITY', 'TIME', 'MENU_ITEM_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'TRUCK_BRAND_NAME', 'SHIFT_SALES']]
-    shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input && shiftid_table['CITY'] == city_input]
+    shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input AND shiftid_table['CITY'] == city_input]
 
     # Display the table on the page.
     st.dataframe(shiftid_display)
