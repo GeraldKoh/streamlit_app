@@ -43,9 +43,11 @@ with tab5:
     github_url = "https://github.com/GeraldKoh/streamlit_app/raw/main/shiftsalesau.zip"
     maintable = read_csv_from_zipped_github(github_url)
 
-    #import pandas
-    data_aust = pd.read_csv('shiftsales_menuitem_au.csv')
-    data_aust.head()
+    maintable.head()
+
+    # #import pandas
+    # data_aust = pd.read_csv('shiftsales_menuitem_au.csv')
+    # data_aust.head()
 
     
 
