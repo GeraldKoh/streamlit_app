@@ -48,8 +48,8 @@ with tab5:
     city_labels = list(city_mapping.keys())
 
     def get_city():
-    city = st.selectbox('Select a city', city_labels)
-    return city
+        city = st.selectbox('Select a city', city_labels)
+        return city
     
     # st.write(maintable)
     # maintable.head()
