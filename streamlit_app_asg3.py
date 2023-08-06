@@ -72,10 +72,10 @@ with tab5:
     shiftid_input = get_shiftid()
     menu_item_input = get_menu_item()
 
-    # shiftid_display = .loc[shiftid_input]
+    shiftid_display = maintable.loc[shiftid_input]
 
-    # # Display the table on the page.
-    # st.dataframe(shiftid_display)
+    # Display the table on the page.
+    st.dataframe(shiftid_display)
 
     # st.write(maintable)
     # maintable.head()
