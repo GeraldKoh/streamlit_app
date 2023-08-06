@@ -47,12 +47,21 @@ with tab5:
     city_reverse_mapping = {v: k for k, v in city_mapping.items()}
     city_labels = list(city_mapping.keys())
 
+    menu_items = maintable["MENU_ITEM_NAME"].unique()
+    menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
+    menu_item_labels = list(menu_mapping.keys())
+
     def get_city():
-        city = st.selectbox('Select a city', city_labels)
+        city = st.selectbox('Select a City', city_labels)
         return city
         
+    def get_menu_item():
+        menu_item = st.selectbox('Select a Menu Item', menu_item_labels)
+        return menu_item
+        
     # Define the user input fields
-    ng_input = get_city()
+    city_input = get_city()
+    menu_item_input = get_menu_item()
     
     # st.write(maintable)
     # maintable.head()
