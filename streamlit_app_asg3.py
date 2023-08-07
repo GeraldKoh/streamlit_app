@@ -5,6 +5,7 @@ import requests
 import requests
 import zipfile
 import io
+import pickle
 from urllib.error import URLError
 
 st.set_page_config(page_title='INVEMP Tasty Bytes Group 5', page_icon='🍖🍕🍜')
