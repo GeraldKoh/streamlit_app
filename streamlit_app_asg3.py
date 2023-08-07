@@ -40,7 +40,6 @@ with tab5:
                 with zip_ref.open(csv_file_name) as csv_file:
                     # Read the CSV data into a Pandas DataFrame
                     df = pd.read_csv(csv_file)
-
             return df
         else:
             st.error(f"Failed to retrieve data from {url}. Status code: {response.status_code}")
