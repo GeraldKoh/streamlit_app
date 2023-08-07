@@ -43,8 +43,8 @@ with tab5:
     github_url = "https://github.com/GeraldKoh/streamlit_app/raw/main/shiftsalesau.zip"
     maintable = read_csv_from_zipped_github(github_url)
 
-    city_mapping = maintable["CITY"].unique()
-    city_reverse_mapping = {city: c for c, city in city_mapping.items()}
+    city = maintable["CITY"].unique()
+    city_mapping = {cities: c for c, cities in enumerate(city)}
     city_labels = list(city_mapping.keys())
 
     shiftid = maintable["SHIFT_ID"].unique()
