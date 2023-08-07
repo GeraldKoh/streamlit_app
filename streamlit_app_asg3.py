@@ -17,7 +17,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Predict
 
 with tab5:
     # Define the app title and favicon
-    st.title('Shift Sales of Cities in Australia')
+    st.title('Shift Sales of Cities in Australia :australia:')
 
     def read_csv_from_zipped_github(url):
     # Send a GET request to the GitHub URL
