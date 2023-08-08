@@ -49,6 +49,11 @@ with tab5:
     github_url = "https://github.com/GeraldKoh/streamlit_app/raw/main/shiftsalesau.zip"
     maintable = read_csv_from_zipped_github(github_url)
 
+    # Load the cleaned and transformed dataset
+    data = pd.read_csv('final_shiftsales_au.csv')
+    shiftsales = data[['SHIFT_SALES']] # extract price column from listings_new2.csv
+
+
     city = maintable["CITY"].unique()
     city_mapping = {cities: c for c, cities in enumerate(city)}
     city_labels = list(city_mapping.keys())
@@ -73,7 +78,7 @@ with tab5:
     city_input = get_city()
     shiftid_input = get_shiftid()
 
-    shiftid_table = maintable[['SHIFT_ID', 'SHIFT_NUMBER', 'CITY', 'YEAR', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'AVG_TEMPERATURE_AIR_2M_F', 'AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN']]
+    # shiftid_table = maintable[['SHIFT_ID', 'SHIFT_NUMBER', 'CITY', 'YEAR', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'AVG_TEMPERATURE_AIR_2M_F', 'AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN']]
     shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input]
 
     # Display the table on the page.
@@ -94,7 +99,7 @@ with tab5:
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
-        input_df = shiftid_table
+        input_df = data
         prediction = xgb_final.predict(input_df)
         # predicted_price = '${:,.2f}'.format(prediction)
         # st.write('The predicted average price is {}.'.format(predicted_price))
