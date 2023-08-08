@@ -1,5 +1,6 @@
+joblib==1.1.0
 streamlit
 pandas
 scikit-learn==1.2.2
 pydeck
-joblib
+
