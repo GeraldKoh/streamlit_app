@@ -98,6 +98,8 @@ with tab5:
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
+        city_int = match_city(city_input)
+        shiftid_int = match_shiftid(shiftid_input)
         input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
         prediction = xgb_final.predict(input_df)
         total_ss = 0
