@@ -83,9 +83,7 @@ with tab5:
 
     # Display the table on the page.
     st.dataframe(shiftid_display)
-
-    input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
-    st.write(input_df)
+    # st.write(input_df)
     # maintable.head()
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
@@ -100,11 +98,10 @@ with tab5:
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
-
+        input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
         # prediction = xgb_final.predict(input_df)
         # predicted_price = '${:,.2f}'.format(prediction)
         # st.write('The predicted average price is {}.'.format(predicted_price))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
-
     # st.subheader('Evaluate')
