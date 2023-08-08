@@ -84,7 +84,8 @@ with tab5:
     # Display the table on the page.
     st.dataframe(shiftid_display)
 
-    st.write(data)
+    input_df = data.drop(['SHIFT_SALES'])
+    st.write(input_df)
     # maintable.head()
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
@@ -99,7 +100,7 @@ with tab5:
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
-        input_df = data.drop(['SHIFT_SALES'])
+
         # prediction = xgb_final.predict(input_df)
         # predicted_price = '${:,.2f}'.format(prediction)
         # st.write('The predicted average price is {}.'.format(predicted_price))
