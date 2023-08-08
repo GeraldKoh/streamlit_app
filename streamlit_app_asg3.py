@@ -73,7 +73,7 @@ with tab5:
     city_input = get_city()
     shiftid_input = get_shiftid()
 
-    shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', ]]
+    shiftid_table = maintable[['SHIFT_ID', 'SHIFT_NUMBER', 'CITY', 'YEAR', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'AVG_TEMPERATURE_AIR_2M_F', 'AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN']]
     shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input]
 
     # Display the table on the page.
@@ -94,7 +94,7 @@ with tab5:
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
-        input_df = maintable
+        input_df = shiftid_table
         prediction = xgb_final.predict(input_df)
         # predicted_price = '${:,.2f}'.format(prediction)
         # st.write('The predicted average price is {}.'.format(predicted_price))
