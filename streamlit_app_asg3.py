@@ -91,7 +91,6 @@ with tab5:
         return shiftid_mapping[shiftid_input]
     shiftid_int = match_shiftid(shiftid_input)
 
-        
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
