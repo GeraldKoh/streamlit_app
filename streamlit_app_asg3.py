@@ -10,7 +10,6 @@ import joblib
 from joblib import load
 from urllib.error import URLError
 
-
 st.set_page_config(page_title='INVEMP Tasty Bytes Group 5', page_icon='🍖🍕🍜')
 
 st.sidebar.title("INVEMP: Inventory/Warehouse Management & Prediction on Sales per Menu Item")
@@ -70,17 +69,12 @@ with tab5:
         shiftid = st.selectbox('Select a Shift', shiftid_labels)
         return shiftid
         
-    # def get_menu_item():
-    #     menu_item = st.selectbox('Select a Menu Item', menu_item_labels)
-    #     return menu_item
-        
     # Define the user input fields
     city_input = get_city()
     shiftid_input = get_shiftid()
-    # menu_item_input = get_menu_item()
 
-    shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'TRUCK_BRAND_NAME', 'SHIFT_SALES']]
-    shiftid_display = maintable[maintable['SHIFT_ID'] == shiftid_input]
+    shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
+    shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input]
 
     # Display the table on the page.
     st.dataframe(shiftid_display)
@@ -88,10 +82,12 @@ with tab5:
     # st.write(maintable)
     # maintable.head()
 
-
-    
     st.subheader('Predict')
-    st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
-    st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
+    # Create a price prediction button
+    if st.button('Predict Price'):
+        # Call the function with the selected room_type as an argument
+        rt_int = match_room_type(room_type)
+    # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
+    # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
 
-    st.subheader('Evaluate')
+    # st.subheader('Evaluate')
