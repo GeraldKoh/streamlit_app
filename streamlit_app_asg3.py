@@ -68,14 +68,14 @@ with tab5:
         shiftid = st.selectbox('Select a Shift', shiftid_labels)
         return shiftid
         
-    def get_menu_item():
-        menu_item = st.selectbox('Select a Menu Item', menu_item_labels)
-        return menu_item
+    # def get_menu_item():
+    #     menu_item = st.selectbox('Select a Menu Item', menu_item_labels)
+    #     return menu_item
         
     # Define the user input fields
     city_input = get_city()
     shiftid_input = get_shiftid()
-    menu_item_input = get_menu_item()
+    # menu_item_input = get_menu_item()
 
     shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY', 'TRUCK_BRAND_NAME', 'SHIFT_SALES']]
     shiftid_display = maintable[maintable['SHIFT_ID'] == shiftid_input]
