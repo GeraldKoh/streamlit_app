@@ -6,7 +6,7 @@ import requests
 import zipfile
 import io
 import pickle
-import joblib
+# import joblib
 from urllib.error import URLError
 
 st.set_page_config(page_title='INVEMP Tasty Bytes Group 5', page_icon='🍖🍕🍜')
@@ -17,13 +17,13 @@ st.sidebar.markdown("This web app allows you to explore the internal inventory o
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Prediction C', 'Prediction D', 'Sales Prediction Australia'])
 
 with tab5:
-    # Load the serialized trained model rf.pkl and scaler object scaler.pkl
-    with open('xgb_final.pkl', 'rb') as file:
-        xgb_final = pickle.loads(file)
-    with open('scaler.pkl', 'rb') as file:
-        scaler = pickle.load(file)
-    # Define the app title and favicon
-    st.title('Shift Sales of Cities in Australia :australia:')
+    # # Load the serialized trained model rf.pkl and scaler object scaler.pkl
+    # with open('xgb_final.pkl', 'rb') as file:
+    #     xgb_final = pickle.loads(file)
+    # with open('scaler.pkl', 'rb') as file:
+    #     scaler = pickle.load(file)
+    # # Define the app title and favicon
+    # st.title('Shift Sales of Cities in Australia :australia:')
 
     def read_csv_from_zipped_github(url):
     # Send a GET request to the GitHub URL
