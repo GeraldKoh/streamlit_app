@@ -101,9 +101,15 @@ with tab5:
         input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
         prediction = xgb_final.predict(input_df)
         total_ss = 0
-        for i in range(input_df):
-            prediction = xgb_final.predict(input_df)[i]
+        for index, row in input_df.iterrows():
+            # Get the prediction for the current row
+            prediction = xgb_final.predict(row.values.reshape(1, -1))[0]
+            # Display the prediction for the current row
+            st.write(f"Prediction for Row {index + 1}: {prediction}")
+            # Add the prediction to the total sum
             total_ss += prediction
+        # Display the total sum of predictions
+        st.write(f"Total Sum of Predictions: {total_ss}")
         # predicted_price = '${:,.2f}'.format(prediction)
         st.write('The predicted average price is {}.'.format(total_ss))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
