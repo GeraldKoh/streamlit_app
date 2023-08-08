@@ -10,7 +10,6 @@ import joblib
 from joblib import load
 from urllib.error import URLError
 
-
 st.set_page_config(page_title='INVEMP Tasty Bytes Group 5', page_icon='🍖🍕🍜')
 
 st.sidebar.title("INVEMP: Inventory/Warehouse Management & Prediction on Sales per Menu Item")
