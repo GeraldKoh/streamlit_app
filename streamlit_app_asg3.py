@@ -82,11 +82,23 @@ with tab5:
     # st.write(maintable)
     # maintable.head()
 
+    # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
+    def match_city(city):
+        return city_mapping[city]
+    city_int = match_city(city)
+
+    def match_shiftid(shiftid):
+        return shiftid_mapping[shiftid]
+    shiftid_int = match_shiftid(shiftid)
+
+        
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
-        # Call the function with the selected room_type as an argument
-        rt_int = match_room_type(room_type)
+        input_df = shiftid_table
+        prediction = xgb_final.predict(input_df)
+        # predicted_price = '${:,.2f}'.format(prediction)
+        # st.write('The predicted average price is {}.'.format(predicted_price))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
 
