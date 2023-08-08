@@ -17,7 +17,6 @@ st.sidebar.markdown("This web app allows you to explore the internal inventory o
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Prediction C', 'Prediction D', 'Sales Prediction Australia'])
 
-
 with tab5:
     # Load the serialized trained model rf.pkl and scaler object scaler.pkl
     with open('xgb_final.pkl', 'rb') as file:
