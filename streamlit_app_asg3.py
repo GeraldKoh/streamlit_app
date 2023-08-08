@@ -21,9 +21,9 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Predict
 with tab5:
     # Load the serialized trained model rf.pkl and scaler object scaler.pkl
     with open('xgb_final.pkl', 'rb') as file:
-        xgb_final = pickle.load(file)
+        xgb_final = joblib.load(file)
     with open('scaler.pkl', 'rb') as file:
-        scaler = pickle.load(file)
+        scaler = joblib.load(file)
     # Define the app title and favicon
     st.title('Shift Sales of Cities in Australia :australia:')
 
