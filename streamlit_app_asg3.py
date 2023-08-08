@@ -84,7 +84,7 @@ with tab5:
     # Display the table on the page.
     st.dataframe(shiftid_display)
 
-    input_df = data.drop(['SHIFT_SALES'])
+    input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
     st.write(input_df)
     # maintable.head()
 
