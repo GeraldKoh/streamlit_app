@@ -90,11 +90,11 @@ with tab5:
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
     def match_city(city):
         return city_mapping[city_input]
-    city_int = match_city(city_input)
+    # city_int = match_city(city_input)
 
     def match_shiftid(shiftid):
         return shiftid_mapping[shiftid_input]
-    shiftid_int = match_shiftid(shiftid_input)
+    # shiftid_int = match_shiftid(shiftid_input)
 
     st.subheader('Predict')
     # Create a price prediction button
