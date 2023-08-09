@@ -51,7 +51,9 @@ with tab5:
 
     # Load the cleaned and transformed dataset
     data = pd.read_csv('final_shiftsales_au.csv')
+    shift_sales= data[['SHIFT_SALES']] 
     data_projected = pd.read_csv('projected_shiftsales_au.csv')
+    projected_shift_sales= data_projected[['SHIFT_SALES']] 
     
     city = maintable["CITY"].unique()
     city_mapping = {cities: c for c, cities in enumerate(city)}
