@@ -83,7 +83,6 @@ with tab5:
 
     # Display the table on the page.
     st.dataframe(shiftid_display)
-    # maintable.head()
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
     def match_city(city):
