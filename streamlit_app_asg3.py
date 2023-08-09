@@ -65,9 +65,9 @@ with tab5:
     shiftid_mapping = {shift: s for s, shift in enumerate(shiftid)}
     shiftid_labels = list(shiftid_mapping.keys())
 
-    # menu_items = maintable["MENU_ITEM_NAME"].unique()
-    # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
-    # menu_item_labels = list(menu_item_mapping.keys())
+    year = maintable["YEAR"].unique()
+    year_mapping = {yr: y for y, yr in enumerate(year)}
+    year_labels = list(year_mapping.keys())
 
     image = Image.open('Sydney_Image.jpg')
     st.image(image, caption='An Iconic View of Australia')
@@ -76,16 +76,21 @@ with tab5:
     st.write('Select City and Shift to get the predicted Shift Sales!')
 
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
-    # Filter the maintable based on the selected city_input
-    filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
+    year_input = st.selectbox('Select a Year', maintable['YEAR'].unique(), key='city')
+    # # Filter the maintable based on the selected city_input
+    # filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
+    # shiftid_input = st.selectbox('Select a Shift', filtered_shift_ids, key='shiftid')
+
+    filtered_table = maintable[(maintable['CITY'] == city_input) & (maintable['YEAR'] == year_input)]
+    filtered_shift_ids = filtered_table['SHIFT_ID'].unique()
     shiftid_input = st.selectbox('Select a Shift', filtered_shift_ids, key='shiftid')
-        
+    
     # Define the user input fields
     # city_input = get_city()
     # shiftid_input = get_shiftid()
 
-    selected_table = maintable[['SHIFT_ID','DATE', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
-    city_shift_display = selected_table[(selected_table['SHIFT_ID'] == shiftid_input) & (selected_table['CITY'] == city_input)]
+    selected_table = maintable[['SHIFT_ID','YEAR', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
+    city_shift_display = selected_table[(selected_table['SHIFT_ID'] == shiftid_input) & (selected_table['CITY'] == city_input) & (selected_table['YEAR'] == year_input)]
 
     # Display the table on the page.
     st.dataframe(city_shift_display)
@@ -99,9 +104,13 @@ with tab5:
         return shiftid_mapping[shiftid_input]
     shiftid_int = match_shiftid(shiftid_input)
 
+    def match_year(year):
+        return year_mapping[year_input]
+    year_int = match_year(year_input)
+
     # Filter the DataFrame based on the SHIFT_ID
-    filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int)]
-    new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int)]
+    filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int) & (data['YEAR'] == year_input)]
+    new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int) & (data['YEAR'] == year_input)]
     
     st.subheader('Predict')
     # Create a price prediction button
