@@ -111,10 +111,10 @@ with tab5:
         # Concatenate all input DataFrames into a single DataFrame
         final_input_df = pd.concat(input_dfs, ignore_index=True)
         
-        input_df = filtered_df[['AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
-                                'TOT_PRECIPITATION_IN', 'TOT_SNOWFALL_IN', 
-                                'SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY',
-                                'ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
+        input_df = pd.DataFrame(final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
+                                         'TOT_PRECIPITATION_IN',
+                                         'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
+                                         'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         st.write(input_df)
         prediction = xgb_final.predict(input_df)
         # predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
