@@ -95,10 +95,10 @@ with tab5:
     # shiftid_int = match_shiftid(shiftid_input)
 
     # Filter the DataFrame based on the SHIFT_ID
-    filtered_df = maintable[(maintable['SHIFT_ID'] == 285770) & (maintable['CITY'] == 'Sydney')]
+    filtered_df = maintable[(maintable['SHIFT_ID'] == shiftid_input) & (maintable['CITY'] == city_input)]
     st.write(filtered_df)
     # Extract the SHIFT_NUMBER
-    shift_number = filtered_df['SHIFT_NUMBER'].values[0]
+    shift_number = filtered_df['SHIFT_NUMBER'].values
     st.write(shift_number)
 
     st.subheader('Predict')
