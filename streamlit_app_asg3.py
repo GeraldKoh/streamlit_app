@@ -65,14 +65,8 @@ with tab5:
     # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
     # menu_item_labels = list(menu_item_mapping.keys())
 
-    # def get_city():
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
-    # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
-        # return city    
-    
-    # def get_shiftid():
     shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
-        # return shiftid
         
     # Define the user input fields
     # city_input = get_city()
@@ -117,13 +111,11 @@ with tab5:
         # Concatenate all input DataFrames into a single DataFrame
         final_input_df = pd.concat(input_dfs, ignore_index=True)
         
-        input_df = pd.DataFrame(final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
-                                         'TOT_PRECIPITATION_IN',
-                                         'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
-                                         'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
+        input_df = filtered_df[['AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
+                                'TOT_PRECIPITATION_IN', 'TOT_SNOWFALL_IN', 
+                                'SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY',
+                                'ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
         st.write(input_df)
-        # input_data = [[shiftid_input, city_input, AVG_TEMPERATURE_AIR_2M_F, AVG_WIND_SPEED_100M_MPH, TOT_PRECIPITATION_IN, TOT_SNOWFALL_IN, SHIFT_NUMBER, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, TRUCK_BRAND_NAME,YEAR]]
-        # input_df = pd.DataFrame(input_data, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         prediction = xgb_final.predict(input_df)
         # predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
         # st.write(predict_df)
@@ -140,7 +132,6 @@ with tab5:
         # st.write(f"Total Sum of Predictions: {total_ss}")
         # predicted_price = '${:,.2f}'.format(prediction)
         st.write(prediction)
-        st.write('The predicted average price is:', sum(prediction))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
     # st.subheader('Evaluate')
