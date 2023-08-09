@@ -81,8 +81,8 @@ with tab5:
     # shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
     # shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input]
 
-    # Display the table on the page.
-    st.dataframe(shiftid_display)
+    # # Display the table on the page.
+    # st.dataframe(shiftid_display)
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
     def match_city(city):
