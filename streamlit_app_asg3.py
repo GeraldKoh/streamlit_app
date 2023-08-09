@@ -112,7 +112,7 @@ with tab5:
     filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int) & (data['YEAR'] == year_input)]
     new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int) & (data_projected['YEAR'] == year_input)]
     
-    st.subheader('Predict')
+    st.subheader('Predict 🎯')
     # Create a price prediction button
     if st.button('Predict Current Shift Sales'):
         city_int = match_city(city_input)
@@ -140,7 +140,8 @@ with tab5:
         prediction = xgb_final.predict(input_df)
         total_sales = prediction.sum()
         st.write("Total Shift Sales Before Revamp: ${:.2f}".format(total_sales))
-    st.subheader('Predict (After Menu Optimization)')
+        
+    st.subheader('Predict (After Menu Optimization) 🎯')
     st.write('Click the button below only if the YEAR is set to 2022 to see the increase!')
     if st.button('Predict Shift Sales After Menu Optimization'):
         city_int = match_city(city_input)
