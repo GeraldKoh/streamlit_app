@@ -116,17 +116,18 @@ with tab5:
                                          'TOT_PRECIPITATION_IN',
                                          'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
                                          'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
+        projected_input_dfs = []
         for i in range(len(projected_filtered_df)):
             # Get the values for each column in the current row
-            values = filtered_df.iloc[i].values
+            values = projected_filtered_df.iloc[i].values
             # Create an individual input DataFrame for the current row
             input_data = [values]  # Include all columns
-            columns = filtered_df.columns
+            columns = projected_filtered_df.columns
             input_df = pd.DataFrame(input_data, columns=columns)
             # Append the input DataFrame to the list
-            input_dfs.append(input_df)
+            projected_input_dfs.append(input_df)
         # Concatenate all input DataFrames into a single DataFrame
-        projected_final_input_df = pd.concat(input_dfs, ignore_index=True)
+        projected_final_input_df = pd.concat(projected_input_dfs, ignore_index=True)
         
         projected_input_df = pd.DataFrame(projected_final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
                                          'TOT_PRECIPITATION_IN',
