@@ -102,7 +102,7 @@ with tab5:
     
     st.subheader('Predict')
     # Create a price prediction button
-    if st.button('Predict Price'):
+    if st.button('Predict Current Shift Sales'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
         # Create an empty list to store individual input DataFrames
@@ -128,7 +128,7 @@ with tab5:
 
         total_sales = prediction.sum()
         st.write("Total Shift Sales Before Revamp:", total_sales)
-    if st.button('Predict New Price'):
+    if st.button('Predict Shift Sales After Menu Optimization'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
         new_input_dfs = []
