@@ -99,37 +99,6 @@ with tab5:
     # Extract the SHIFT_NUMBER
     shiftid = maintable[(maintable['SHIFT_ID'] == shiftid_input)]['SHIFT_ID'].values
     
-    # AVG_TEMPERATURE_AIR_2M_F = filtered_df['AVG_TEMPERATURE_AIR_2M_F'].values
-    # AVG_WIND_SPEED_100M_MPH = filtered_df['AVG_WIND_SPEED_100M_MPH'].values
-    # TOT_PRECIPITATION_IN = filtered_df['TOT_PRECIPITATION_IN'].values
-    # TOT_SNOWFALL_IN = filtered_df['TOT_SNOWFALL_IN'].values
-    # SHIFT_NUMBER = filtered_df['SHIFT_NUMBER'].values
-    # MENU_ITEM_NAME = filtered_df['MENU_ITEM_NAME'].values
-    # ITEM_CATEGORY = filtered_df['ITEM_CATEGORY'].values
-    # ITEM_SUBCATEGORY = filtered_df['ITEM_SUBCATEGORY'].values
-    # TRUCK_BRAND_NAME = filtered_df['TRUCK_BRAND_NAME'].values
-    # YEAR = filtered_df['YEAR'].values
-
-    # Create an empty list to store individual input DataFrames
-    input_dfs = []
-    
-    # Iterate over each row in the filtered DataFrame
-    for i in range(len(filtered_df)):
-        # Get the values for each column in the current row
-        values = filtered_df.iloc[i].values
-        
-        # Create an individual input DataFrame for the current row
-        input_data = [values]  # Include all columns
-        columns = filtered_df.columns
-        input_df = pd.DataFrame(input_data, columns=columns)
-        
-        # Append the input DataFrame to the list
-        input_dfs.append(input_df)
-    
-    # Concatenate all input DataFrames into a single DataFrame
-    final_input_df = pd.concat(input_dfs, ignore_index=True)
-    
-    print(final_input_df)
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
