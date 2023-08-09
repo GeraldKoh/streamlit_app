@@ -119,35 +119,35 @@ with tab5:
                                          'TOT_PRECIPITATION_IN',
                                          'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
                                          'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
-        projected_input_dfs = []
-        for i in range(len(projected_filtered_df)):
-            # Get the values for each column in the current row
-            values = projected_filtered_df.iloc[i].values
-            # Create an individual input DataFrame for the current row
-            input_data = [values]  # Include all columns
-            columns = projected_filtered_df.columns
-            input_df = pd.DataFrame(input_data, columns=columns)
-            # Append the input DataFrame to the list
-            projected_input_dfs.append(input_df)
-        # Concatenate all input DataFrames into a single DataFrame
-        projected_final_input_df = pd.concat(projected_input_dfs, ignore_index=True)
+        # projected_input_dfs = []
+        # for i in range(len(projected_filtered_df)):
+        #     # Get the values for each column in the current row
+        #     values = projected_filtered_df.iloc[i].values
+        #     # Create an individual input DataFrame for the current row
+        #     input_data = [values]  # Include all columns
+        #     columns = projected_filtered_df.columns
+        #     input_df = pd.DataFrame(input_data, columns=columns)
+        #     # Append the input DataFrame to the list
+        #     projected_input_dfs.append(input_df)
+        # # Concatenate all input DataFrames into a single DataFrame
+        # projected_final_input_df = pd.concat(projected_input_dfs, ignore_index=True)
         
-        projected_input_df = pd.DataFrame(projected_final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
-                                         'TOT_PRECIPITATION_IN',
-                                         'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
-                                         'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
+        # projected_input_df = pd.DataFrame(projected_final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
+        #                                  'TOT_PRECIPITATION_IN',
+        #                                  'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
+        #                                  'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         st.write(input_df)
         prediction = xgb_final.predict(input_df)
-        projected_prediction = xgb_final.predict(projected_input_input_df)
+        # projected_prediction = xgb_final.predict(projected_input_input_df)
         # predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
         # st.write(predict_df)
         # result_df = pd.concat([input_df, prediction], axis=1)
         st.write(prediction)
-        st.write(projected_prediction)
+        # st.write(projected_prediction)
         total_sales = prediction.sum()
         st.write("Total Shift Sales:", total_sales)
-        projected_total_sales = projected_prediction.sum()
-        st.write("Projected Total Shift Sales:", projected_total_sales)
+        # projected_total_sales = projected_prediction.sum()
+        # st.write("Projected Total Shift Sales:", projected_total_sales)
 
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
