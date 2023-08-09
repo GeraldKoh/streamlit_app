@@ -68,8 +68,13 @@ with tab5:
     # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
     # menu_item_labels = list(menu_item_mapping.keys())
 
-    city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
-    shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
+    # city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
+    # shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
+
+    city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
+    # Filter the maintable based on the selected city_input
+    filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
+    shiftid_input = st.selectbox('Select a Shift', filtered_shift_ids, key='shiftid')
         
     # Define the user input fields
     # city_input = get_city()
@@ -92,9 +97,7 @@ with tab5:
 
     # Filter the DataFrame based on the SHIFT_ID
     filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int)]
-    st.write(filtered_df)
     new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int)]
-    st.write(new_filtered_df)
     
     st.subheader('Predict')
     # Create a price prediction button
