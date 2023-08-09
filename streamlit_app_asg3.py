@@ -68,9 +68,6 @@ with tab5:
     # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
     # menu_item_labels = list(menu_item_mapping.keys())
 
-    # city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
-    # shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
-
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
     # Filter the maintable based on the selected city_input
     filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
@@ -80,7 +77,7 @@ with tab5:
     # city_input = get_city()
     # shiftid_input = get_shiftid()
 
-    selected_table = maintable[['SHIFT_ID', 'DATE', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
+    selected_table = maintable[['DATE', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
     city_shift_display = selected_table[(selected_table['SHIFT_ID'] == shiftid_input) & (selected_table['CITY'] == city_input)]
 
     # Display the table on the page.
