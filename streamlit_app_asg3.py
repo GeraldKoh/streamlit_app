@@ -97,6 +97,8 @@ with tab5:
     filtered_df = maintable[(maintable['SHIFT_ID'] == shiftid_input) & (maintable['CITY'] == city_input)]
     st.write(filtered_df)
     # Extract the SHIFT_NUMBER
+    shiftid = maintable[(maintable['SHIFT_ID'] == shiftid_input)].values
+    
     AVG_TEMPERATURE_AIR_2M_F = filtered_df['AVG_TEMPERATURE_AIR_2M_F'].values
     AVG_WIND_SPEED_100M_MPH = filtered_df['AVG_WIND_SPEED_100M_MPH'].values
     TOT_PRECIPITATION_IN = filtered_df['TOT_PRECIPITATION_IN'].values
@@ -113,7 +115,7 @@ with tab5:
     if st.button('Predict Price'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
-        input_data = [[shiftid_int, city_int, AVG_TEMPERATURE_AIR_2M_F, AVG_WIND_SPEED_100M_MPH, TOT_PRECIPITATION_IN, TOT_SNOWFALL_IN, SHIFT_NUMBER, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, TRUCK_BRAND_NAME,YEAR]]
+        input_data = [[shiftid_input, city_input, AVG_TEMPERATURE_AIR_2M_F, AVG_WIND_SPEED_100M_MPH, TOT_PRECIPITATION_IN, TOT_SNOWFALL_IN, SHIFT_NUMBER, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, TRUCK_BRAND_NAME,YEAR]]
         st.write(input_data)
         input_df = pd.DataFrame(input_data, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         prediction = xgb_final.predict(input_df)
