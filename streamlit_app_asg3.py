@@ -72,6 +72,9 @@ with tab5:
     image = Image.open('Sydney_Image.jpg')
     st.image(image, caption='An Iconic View of Australia')
 
+    st.markdown("This tab allows predictions on the Shift Sales of a shift based on the City and Shift ID. The model used is a XGBoost model trained on the Tastybytes dataset.")
+    st.write('Select City and Shift ID to get the predicted Shift Sales!')
+
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
     # Filter the maintable based on the selected city_input
     filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
@@ -158,6 +161,4 @@ with tab5:
         st.write("Projected Total Shift Sales After Menu Optimization:", projected_total_sales)
 
 
-    # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
-    # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
-    # st.subheader('Evaluate')
+
