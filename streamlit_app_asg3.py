@@ -125,6 +125,8 @@ with tab5:
         # input_data = [[shiftid_input, city_input, AVG_TEMPERATURE_AIR_2M_F, AVG_WIND_SPEED_100M_MPH, TOT_PRECIPITATION_IN, TOT_SNOWFALL_IN, SHIFT_NUMBER, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, TRUCK_BRAND_NAME,YEAR]]
         # input_df = pd.DataFrame(input_data, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         prediction = xgb_final.predict(input_df)
+        predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
+        st.write(predict_df)
         result_df = pd.concat([input_df, prediction], axis=1)
         total_ss = 0
         # for index, row in input_df.iterrows():
