@@ -67,12 +67,12 @@ with tab5:
     # menu_item_labels = list(menu_item_mapping.keys())
 
     # def get_city():
-    city_input = st.selectbox('Select a City', data['CITY'].unique(), key = 'city')
+    city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
     # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
         # return city    
         
     # def get_shiftid():
-    shiftid_input = st.selectbox('Select a Shift', data['SHIFT_ID'].unique(), key='shiftid')
+    shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
         # return shiftid
         
     # Define the user input fields
