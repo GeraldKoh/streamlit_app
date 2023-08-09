@@ -98,8 +98,16 @@ with tab5:
     filtered_df = maintable[(maintable['SHIFT_ID'] == shiftid_input) & (maintable['CITY'] == city_input)]
     st.write(filtered_df)
     # Extract the SHIFT_NUMBER
-    shift_number = filtered_df['SHIFT_NUMBER'].values
-    st.write(shift_number)
+    AVG_TEMPERATURE_AIR_2M_F = filtered_df['AVG_TEMPERATURE_AIR_2M_F'].values
+    AVG_WIND_SPEED_100M_MPH = filtered_df['AVG_WIND_SPEED_100M_MPH'].values
+    TOT_PRECIPITATION_IN = filtered_df['TOT_PRECIPITATION_IN'].values
+    TOT_SNOWFALL_IN = filtered_df['TOT_SNOWFALL_IN'].values
+    SHIFT_NUMBER = filtered_df['SHIFT_NUMBER'].values
+    MENU_ITEM_NAME = filtered_df['MENU_ITEM_NAME'].values
+    ITEM_CATEGORY = filtered_df['ITEM_CATEGORY'].values
+    ITEM_SUBCATEGORY = filtered_df['ITEM_SUBCATEGORY'].values
+    TRUCK_BRAND_NAME = filtered_df['TRUCK_BRAND_NAME'].values
+    YEAR = filtered_df['YEAR'].values
 
     st.subheader('Predict')
     # Create a price prediction button
