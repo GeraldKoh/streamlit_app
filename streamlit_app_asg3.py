@@ -51,7 +51,7 @@ with tab5:
 
     # Load the cleaned and transformed dataset
     data = pd.read_csv('final_shiftsales_au.csv')
-    shiftsales = data[['SHIFT_SALES']] # extract price column from listings_new2.csv
+    data_projected = pd.read_csv('projected_shiftsales_au.csv')
     
     city = maintable["CITY"].unique()
     city_mapping = {cities: c for c, cities in enumerate(city)}
@@ -90,13 +90,14 @@ with tab5:
     # Filter the DataFrame based on the SHIFT_ID
     filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int)]
     st.write(filtered_df)
+    projected_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int)]
     
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Price'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
-            # Create an empty list to store individual input DataFrames
+        # Create an empty list to store individual input DataFrames
         input_dfs = []
         # Iterate over each row in the filtered DataFrame
         for i in range(len(filtered_df)):
@@ -115,8 +116,25 @@ with tab5:
                                          'TOT_PRECIPITATION_IN',
                                          'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
                                          'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
+        for i in range(len(projected_filtered_df)):
+            # Get the values for each column in the current row
+            values = filtered_df.iloc[i].values
+            # Create an individual input DataFrame for the current row
+            input_data = [values]  # Include all columns
+            columns = filtered_df.columns
+            input_df = pd.DataFrame(input_data, columns=columns)
+            # Append the input DataFrame to the list
+            input_dfs.append(input_df)
+        # Concatenate all input DataFrames into a single DataFrame
+        projected_final_input_df = pd.concat(input_dfs, ignore_index=True)
+        
+        projected_input_df = pd.DataFrame(projected_final_input_df, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
+                                         'TOT_PRECIPITATION_IN',
+                                         'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
+                                         'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         st.write(input_df)
         prediction = xgb_final.predict(input_df)
+        projected_prediction = xgb_final.predict(projected_input_input_df)
         # predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
         # st.write(predict_df)
         # result_df = pd.concat([input_df, prediction], axis=1)
@@ -132,8 +150,11 @@ with tab5:
         # st.write(f"Total Sum of Predictions: {total_ss}")
         # predicted_price = '${:,.2f}'.format(prediction)
         st.write(prediction)
+        st.write(projected_prediction)
         total_sales = prediction.sum()
         st.write("Total Shift Sales:", total_sales)
+        projected_total_sales = projected_prediction.sum()
+        st.write("Projected Total Shift Sales:", projected_total_sales)
 
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
