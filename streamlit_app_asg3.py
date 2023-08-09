@@ -137,7 +137,7 @@ with tab5:
                                                          'TRUCK_BRAND_NAME_Kitakata Ramen Bar','TRUCK_BRAND_NAME_Peking Truck', 'TRUCK_BRAND_NAME_Smoky BBQ','TRUCK_BRAND_NAME_Le Coin des Crêpes','TRUCK_BRAND_NAME_Plant Palace',
                                                          'TRUCK_BRAND_NAME_Tasty Tibs','TRUCK_BRAND_NAME_Cheeky Greek',"TRUCK_BRAND_NAME_Nani's Kitchen",'TRUCK_BRAND_NAME_The Mega Melt','TRUCK_BRAND_NAME_Revenge of the Curds','TRUCK_BRAND_NAME_The Mac Shack','TRUCK_BRAND_NAME_Not the Wurst Hot Dogs',"TRUCK_BRAND_NAME_Guac n' Roll"])
         prediction = xgb_final.predict(input_df)
-
+        st.write(prediction)
         total_sales = prediction.sum()
         st.write("Total Shift Sales Before Revamp:", total_sales)
     if st.button('Predict Shift Sales After Menu Optimization'):
@@ -167,6 +167,7 @@ with tab5:
                                                          'TRUCK_BRAND_NAME_Tasty Tibs','TRUCK_BRAND_NAME_Cheeky Greek',"TRUCK_BRAND_NAME_Nani's Kitchen",'TRUCK_BRAND_NAME_The Mega Melt','TRUCK_BRAND_NAME_Revenge of the Curds','TRUCK_BRAND_NAME_The Mac Shack','TRUCK_BRAND_NAME_Not the Wurst Hot Dogs',"TRUCK_BRAND_NAME_Guac n' Roll"])
         projected_prediction = xgb_final.predict(new_input_df)
         projected_total_sales = projected_prediction.sum()
+        st.write(projected_prediction)
         st.write("Projected Total Shift Sales After Menu Optimization:", projected_total_sales)
 
 
