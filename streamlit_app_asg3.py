@@ -110,13 +110,14 @@ with tab5:
 
     # Filter the DataFrame based on the SHIFT_ID
     filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int) & (data['YEAR'] == year_input)]
-    new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int) & (data['YEAR'] == year_input)]
+    new_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int) & (data_projected['YEAR'] == year_input)]
     
     st.subheader('Predict')
     # Create a price prediction button
     if st.button('Predict Current Shift Sales'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
+        year_int = match_year(year_input)
         # Create an empty list to store individual input DataFrames
         input_dfs = []
         # Iterate over each row in the filtered DataFrame
@@ -143,6 +144,7 @@ with tab5:
     if st.button('Predict Shift Sales After Menu Optimization'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
+        year_int = match_year(year_input)
         new_input_dfs = []
         for i in range(len(new_filtered_df)):
             # Get the values for each column in the current row
