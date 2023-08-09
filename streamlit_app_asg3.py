@@ -119,15 +119,18 @@ with tab5:
                                          'TOT_PRECIPITATION_IN',
                                          'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
                                          'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
-        # Create an empty list to store individual input DataFrames
+        st.write(input_df)
+        prediction = xgb_final.predict(input_df)
+        st.write(prediction)
+        total_sales = prediction.sum()
+        st.write("Total Shift Sales:", total_sales)
+    if st.button('Predict New Price'):
+        city_int = match_city(city_input)
+        shiftid_int = match_shiftid(shiftid_input)
         new_input_dfs = []
-        
-        # Iterate over each row in the filtered DataFrame
         for i in range(len(new_filtered_df)):
             # Get the values for each column in the current row
             values = new_filtered_df.iloc[i].values
-            
-            # Create an individual input DataFrame for the current row
             input_data = [values]  # Include all columns
             columns = new_filtered_df.columns
             input_df = pd.DataFrame(input_data, columns=columns)
@@ -142,15 +145,11 @@ with tab5:
                                          'TOT_PRECIPITATION_IN',
                                          'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
                                          'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
-        st.write(input_df)
-        prediction = xgb_final.predict(input_df)
         projected_prediction = xgb_final.predict(new_input_df)
-        st.write(prediction)
         st.write(projected_prediction)
-        total_sales = prediction.sum()
-        st.write("Total Shift Sales:", total_sales)
         projected_total_sales = projected_prediction.sum()
         st.write("Projected Total Shift Sales:", projected_total_sales)
+        
 
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
