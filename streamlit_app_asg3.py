@@ -69,12 +69,10 @@ with tab5:
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
     # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
         # return city    
-    st.write(city_input)
-        
+    
     # def get_shiftid():
     shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
         # return shiftid
-    st.write(shiftid_input)
         
     # Define the user input fields
     # city_input = get_city()
@@ -102,7 +100,8 @@ with tab5:
     if st.button('Predict Price'):
         city_int = match_city(city_input)
         shiftid_int = match_shiftid(shiftid_input)
-        input_df = data[['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR']]
+        input_data = [[shiftid_int, city_int, AVG_TEMPERATURE_AIR_2M_F, AVG_WIND_SPEED_100M_MPH, TOT_PRECIPITATION_IN, TOT_SNOWFALL_IN, SHIFT_NUMBER, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, TRUCK_BRAND_NAME,YEAR]]
+        input_df = pd.DataFrame(input_data, columns=['SHIFT_ID','CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','TOT_SNOWFALL_IN','SHIFT_NUMBER', 'MENU_ITEM_NAME', 'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
         prediction = xgb_final.predict(input_df)
         total_ss = 0
         # for index, row in input_df.iterrows():
