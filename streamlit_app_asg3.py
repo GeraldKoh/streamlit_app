@@ -76,7 +76,7 @@ with tab5:
     st.write('Select City and Shift to get the predicted Shift Sales!')
 
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
-    year_input = st.selectbox('Select a Year', maintable['YEAR'].unique(), key='city')
+    year_input = st.selectbox('Select a Year', maintable['YEAR'].unique(), key='year')
     # # Filter the maintable based on the selected city_input
     # filtered_shift_ids = maintable[maintable['CITY'] == city_input]['SHIFT_ID'].unique()
     # shiftid_input = st.selectbox('Select a Shift', filtered_shift_ids, key='shiftid')
