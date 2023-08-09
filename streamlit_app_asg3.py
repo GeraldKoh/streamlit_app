@@ -91,6 +91,7 @@ with tab5:
     filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int)]
     st.write(filtered_df)
     projected_filtered_df = data_projected[(data_projected['SHIFT_ID'] == shiftid_input) & (data_projected['CITY'] == city_int)]
+    st.write(projected_filtered_df)
     
     st.subheader('Predict')
     # Create a price prediction button
@@ -139,17 +140,6 @@ with tab5:
         # predict_df = pd.DataFrame(input_data, columns=['MENU_ITEM_SALE'])
         # st.write(predict_df)
         # result_df = pd.concat([input_df, prediction], axis=1)
-        total_ss = 0
-        # for index, row in input_df.iterrows():
-        #     # Get the prediction for the current row
-        #     prediction = xgb_final.predict(row.values.reshape(1, -1))[0]
-        #     # Display the prediction for the current row
-        #     st.write(f"Prediction for Row {index + 1}: {prediction}")
-        #     # Add the prediction to the total sum
-        #     total_ss += prediction
-        # # Display the total sum of predictions
-        # st.write(f"Total Sum of Predictions: {total_ss}")
-        # predicted_price = '${:,.2f}'.format(prediction)
         st.write(prediction)
         st.write(projected_prediction)
         total_sales = prediction.sum()
