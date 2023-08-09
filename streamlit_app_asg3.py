@@ -66,17 +66,18 @@ with tab5:
     # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
     # menu_item_labels = list(menu_item_mapping.keys())
 
-    def get_city():
-        city = st.selectbox('Select a City', city_labels)
-        return city    
+    # def get_city():
+    city_input = st.selectbox('Select a City', data['CITY'].unique(), key = 'city')
+    # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
+        # return city    
         
     def get_shiftid():
-        shiftid = st.selectbox('Select a Shift', shiftid_labels)
-        return shiftid
+    shiftid_input = st.selectbox('Select a Shift', data['SHIFT_ID'].unique(), key='shiftid')
+        # return shiftid
         
     # Define the user input fields
-    city_input = get_city()
-    shiftid_input = get_shiftid()
+    # city_input = get_city()
+    # shiftid_input = get_shiftid()
 
     shiftid_table = maintable[['SHIFT_ID', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
     shiftid_display = shiftid_table[shiftid_table['SHIFT_ID'] == shiftid_input]
@@ -112,7 +113,7 @@ with tab5:
         #     total_ss += prediction
         # # Display the total sum of predictions
         # st.write(f"Total Sum of Predictions: {total_ss}")
-        # predicted_price = '${:,.2f}'.format(prediction)
+        predicted_price = '${:,.2f}'.format(prediction)
         st.write('The predicted average price is {}.'.format(total_ss))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
