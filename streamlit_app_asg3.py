@@ -26,7 +26,7 @@ with tab5:
     with open('scaler.pkl', 'rb') as file:
         scaler = joblib.load(file)
     # Define the app title and favicon
-    st.title('Shift Sales of Cities in Australia 💸💸')
+    st.title('Shift Sales of Cities in Australia 💸')
 
     def read_csv_from_zipped_github(url):
     # Send a GET request to the GitHub URL
