@@ -77,7 +77,7 @@ with tab5:
     # city_input = get_city()
     # shiftid_input = get_shiftid()
 
-    selected_table = maintable[['DATE', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
+    selected_table = maintable[['SHIFT_ID','DATE', 'CITY', 'MENU_ITEM_NAME', 'TRUCK_BRAND_NAME', 'ITEM_CATEGORY', 'ITEM_SUBCATEGORY']]
     city_shift_display = selected_table[(selected_table['SHIFT_ID'] == shiftid_input) & (selected_table['CITY'] == city_input)]
 
     # Display the table on the page.
