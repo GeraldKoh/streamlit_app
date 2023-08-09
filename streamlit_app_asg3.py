@@ -7,6 +7,7 @@ import zipfile
 import io
 import pickle
 import joblib
+from PIL import Image
 from joblib import load
 from urllib.error import URLError
 
@@ -67,6 +68,9 @@ with tab5:
     # menu_items = maintable["MENU_ITEM_NAME"].unique()
     # menu_item_mapping = {item: i for i, item in enumerate(menu_items)}
     # menu_item_labels = list(menu_item_mapping.keys())
+
+    image = Image.open('Sydney_Image.jpg')
+    st.image(image, caption='An Iconic View of Australia')
 
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key='city')
     # Filter the maintable based on the selected city_input
