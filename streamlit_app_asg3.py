@@ -52,8 +52,7 @@ with tab5:
     # Load the cleaned and transformed dataset
     data = pd.read_csv('final_shiftsales_au.csv')
     shiftsales = data[['SHIFT_SALES']] # extract price column from listings_new2.csv
-
-
+    
     city = maintable["CITY"].unique()
     city_mapping = {cities: c for c, cities in enumerate(city)}
     city_labels = list(city_mapping.keys())
@@ -70,10 +69,12 @@ with tab5:
     city_input = st.selectbox('Select a City', maintable['CITY'].unique(), key = 'city')
     # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
         # return city    
+    st.write(city_input)
         
     # def get_shiftid():
     shiftid_input = st.selectbox('Select a Shift', maintable['SHIFT_ID'].unique(), key='shiftid')
         # return shiftid
+    st.write(shiftid_input)
         
     # Define the user input fields
     # city_input = get_city()
