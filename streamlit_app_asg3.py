@@ -93,6 +93,7 @@ with tab5:
     city_shift_display = selected_table[(selected_table['SHIFT_ID'] == shiftid_input) & (selected_table['CITY'] == city_input) & (selected_table['YEAR'] == year_input)]
 
     # Display the table on the page.
+    st.write('Menu Items in Shift!')
     st.dataframe(city_shift_display)
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
