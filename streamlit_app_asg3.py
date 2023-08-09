@@ -169,7 +169,7 @@ with tab5:
                                                          'TRUCK_BRAND_NAME_Tasty Tibs','TRUCK_BRAND_NAME_Cheeky Greek',"TRUCK_BRAND_NAME_Nani's Kitchen",'TRUCK_BRAND_NAME_The Mega Melt','TRUCK_BRAND_NAME_Revenge of the Curds','TRUCK_BRAND_NAME_The Mac Shack','TRUCK_BRAND_NAME_Not the Wurst Hot Dogs',"TRUCK_BRAND_NAME_Guac n' Roll"])
         projected_prediction = xgb_final.predict(new_input_df)
         projected_total_sales = projected_prediction.sum()
-        st.write(projected_prediction)
+        st.write('Click the button below only if the YEAR is set to 2022 to see the increase!')
         st.write("Projected Total Shift Sales After Menu Optimization:", projected_total_sales)
 
 
