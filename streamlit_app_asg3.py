@@ -150,7 +150,6 @@ with tab5:
         projected_total_sales = projected_prediction.sum()
         st.write("Projected Total Shift Sales:", projected_total_sales)
         
-
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
     # st.subheader('Evaluate')
