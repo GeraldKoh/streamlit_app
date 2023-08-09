@@ -114,7 +114,8 @@ with tab5:
         # # Display the total sum of predictions
         # st.write(f"Total Sum of Predictions: {total_ss}")
         predicted_price = '${:,.2f}'.format(prediction)
-        st.write('The predicted average price is {}.'.format(total_ss))
+        st.write(prediction)
+        # st.write('The predicted average price is {}.'.format(total_ss))
     # st.markdown("This tab allows predictions on the price of a listing based on the neighbourhood and room type. The model used is a Random Forest Regressor trained on the Airbnb Singapore listings dataset.")
     # st.write('Choose a neighborhood group, neighborhood, and room type to get the predicted average price.')
     # st.subheader('Evaluate')
