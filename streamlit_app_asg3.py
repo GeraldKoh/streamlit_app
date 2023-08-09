@@ -95,7 +95,7 @@ with tab5:
     # shiftid_int = match_shiftid(shiftid_input)
 
     # Filter the DataFrame based on the SHIFT_ID
-    filtered_df = maintable[maintable['SHIFT_ID'] == shiftid_input and maintable['CITY'] == city_input]
+    filtered_df = data[(data['SHIFT_ID'] == 285770) & (data['CITY'] == 'Sydney')]
     st.write(filtered_df)
     # Extract the SHIFT_NUMBER
     shift_number = filtered_df['SHIFT_NUMBER'].values[0]
