@@ -116,10 +116,10 @@ with tab5:
         # Concatenate all input DataFrames into a single DataFrame
         final_input_df = pd.concat(input_dfs, ignore_index=True)
         
-        input_df = pd.DataFrame(final_input_df, columns=['CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH',
-                                         'TOT_PRECIPITATION_IN',
-                                         'TOT_SNOWFALL_IN', 'SHIFT_NUMBER', 'MENU_ITEM_NAME', 
-                                         'ITEM_CATEGORY','ITEM_SUBCATEGORY','TRUCK_BRAND_NAME','YEAR'])
+        input_df = pd.DataFrame(final_input_df, columns=['CITY','AVG_TEMPERATURE_AIR_2M_F','AVG_WIND_SPEED_100M_MPH','TOT_PRECIPITATION_IN','SHIFT_NUMBER', 'SHIFT_SALES','YEAR','ITEM_CATEGORY_Dessert','ITEM_CATEGORY_Main','ITEM_CATEGORY_Beverage',
+                                                         'ITEM_CATEGORY_Snack', 'ITEM_SUBCATEGORY_Cold Option','ITEM_SUBCATEGORY_Hot Option','ITEM_SUBCATEGORY_Warm Option','TRUCK_BRAND_NAME_Freezing Point','TRUCK_BRAND_NAME_Better Off Bread',
+                                                         'TRUCK_BRAND_NAME_Kitakata Ramen Bar','TRUCK_BRAND_NAME_Peking Truck', 'TRUCK_BRAND_NAME_Smoky BBQ','TRUCK_BRAND_NAME_Le Coin des Crêpes','TRUCK_BRAND_NAME_Plant Palace',
+                                                         'TRUCK_BRAND_NAME_Tasty Tibs','TRUCK_BRAND_NAME_Cheeky Greek','TRUCK_BRAND_NAME_Nani's Kitchen','TRUCK_BRAND_NAME_The Mega Melt','TRUCK_BRAND_NAME_Revenge of the Curds','TRUCK_BRAND_NAME_The Mac Shack','TRUCK_BRAND_NAME_Not the Wurst Hot Dogs','TRUCK_BRAND_NAME_Guac n' Roll'])
         st.write(input_df)
         prediction = xgb_final.predict(input_df)
         st.write(prediction)
