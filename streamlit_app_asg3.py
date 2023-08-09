@@ -97,7 +97,7 @@ with tab5:
     filtered_df = maintable[(maintable['SHIFT_ID'] == shiftid_input) & (maintable['CITY'] == city_input)]
     st.write(filtered_df)
     # Extract the SHIFT_NUMBER
-    shiftid = maintable[(maintable['SHIFT_ID'] == shiftid_input)].values
+    shiftid = maintable[(maintable['SHIFT_ID'] == shiftid_input)]['SHIFT_ID'].values
     
     AVG_TEMPERATURE_AIR_2M_F = filtered_df['AVG_TEMPERATURE_AIR_2M_F'].values
     AVG_WIND_SPEED_100M_MPH = filtered_df['AVG_WIND_SPEED_100M_MPH'].values
