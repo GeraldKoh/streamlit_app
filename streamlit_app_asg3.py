@@ -71,7 +71,7 @@ with tab5:
     # room_type = st.sidebar.selectbox("Room type", data['room_type'].unique(), key='room_type')
         # return city    
         
-    def get_shiftid():
+    # def get_shiftid():
     shiftid_input = st.selectbox('Select a Shift', data['SHIFT_ID'].unique(), key='shiftid')
         # return shiftid
         
