@@ -97,7 +97,7 @@ with tab5:
     st.write(shiftid_int)
 
     # Filter the DataFrame based on the SHIFT_ID
-    filtered_df = data[(data['SHIFT_ID'] == shiftid_int) & (data['CITY'] == city_int)]
+    filtered_df = data[(data['SHIFT_ID'] == shiftid_input) & (data['CITY'] == city_int)]
     st.write(filtered_df)
     
     st.subheader('Predict')
