@@ -87,17 +87,15 @@ with tab5:
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
     def match_city(city):
         return city_mapping[city_input]
-    # city_int = match_city(city_input)
+    city_int = match_city(city_input)
 
     def match_shiftid(shiftid):
         return shiftid_mapping[shiftid_input]
-    # shiftid_int = match_shiftid(shiftid_input)
+    shiftid_int = match_shiftid(shiftid_input)
 
     # Filter the DataFrame based on the SHIFT_ID
-    filtered_df = maintable[(maintable['SHIFT_ID'] == shiftid_input) & (maintable['CITY'] == city_input)]
+    filtered_df = data[(data['SHIFT_ID'] == shiftid_int) & (data['CITY'] == city_int)]
     st.write(filtered_df)
-    # Extract the SHIFT_NUMBER
-    shiftid = maintable[(maintable['SHIFT_ID'] == shiftid_input)]['SHIFT_ID'].values
     
     st.subheader('Predict')
     # Create a price prediction button
