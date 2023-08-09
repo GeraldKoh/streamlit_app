@@ -83,7 +83,6 @@ with tab5:
 
     # Display the table on the page.
     st.dataframe(shiftid_display)
-    # st.write(input_df)
     # maintable.head()
 
     # Create a function that takes neighbourhood_group as an argument and returns the corresponding integer value.
@@ -94,6 +93,13 @@ with tab5:
     def match_shiftid(shiftid):
         return shiftid_mapping[shiftid_input]
     # shiftid_int = match_shiftid(shiftid_input)
+
+    # Filter the DataFrame based on the SHIFT_ID
+    filtered_df = maintable[maintable['SHIFT_ID'] == shiftid_input and maintable['CITY'] == city_input]
+    st.write(filtered_df)
+    # Extract the SHIFT_NUMBER
+    shift_number = filtered_df['SHIFT_NUMBER'].values[0]
+    st.write(shift_number)
 
     st.subheader('Predict')
     # Create a price prediction button
