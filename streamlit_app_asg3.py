@@ -88,10 +88,13 @@ with tab5:
     def match_city(city):
         return city_mapping[city_input]
     city_int = match_city(city_input)
+    st.write(city_int)
+    
 
     def match_shiftid(shiftid):
         return shiftid_mapping[shiftid_input]
     shiftid_int = match_shiftid(shiftid_input)
+    st.write(shiftid_int)
 
     # Filter the DataFrame based on the SHIFT_ID
     filtered_df = data[(data['SHIFT_ID'] == shiftid_int) & (data['CITY'] == city_int)]
