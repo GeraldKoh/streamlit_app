@@ -14,7 +14,7 @@ from urllib.error import URLError
 st.set_page_config(page_title='INVEMP Tasty Bytes Group 5', page_icon='🍖🍕🍜')
 
 st.sidebar.title("INVEMP: Inventory/Warehouse Management & Prediction on Sales per Menu Item")
-st.sidebar.markdown("This web app allows you to explore the internal inventory of Tasty Bytes. You can explore these functions in the web app: Churn Prediction, Customer Revenue Calculation, Bundled Item Sales Analysis, Truck Implementation and Shift Sales Australia"")
+st.sidebar.markdown("This web app allows you to explore the internal inventory of Tasty Bytes. You can explore these functions in the web app: Churn Prediction, Customer Revenue Calculation, Bundled Item Sales Analysis, Truck Implementation and Shift Sales Australia")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(['Prediction A', 'Prediction B', 'Prediction C', 'Prediction D', 'Sales Prediction Australia'])
 
